@@ -1,0 +1,11 @@
+ORG 0000
+START: 	NOP
+		CPL 80h			;p0.0
+		MOV R0, #0FFH;
+LB:		MOV R1, #0FFH;
+LA:		NOP;
+		DJNZ R1, LA;
+		DJNZ R0, LB;
+
+		SJMP START
+		END

@@ -1,0 +1,143 @@
+package lab1;
+
+import java.util.Scanner;
+
+public class board {
+
+	char[][] grid = new char[3][3];
+
+	public board()
+	{
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				grid[i][j] = '-';
+			}
+		}
+	}
+	
+	public void put(int x, int y, char value)
+	{
+		Scanner readValue = new Scanner(System.in);
+		int flag = 0;
+		while(flag == 0){
+			if(x < 3 && x>=0 && y < 3 && y >= 0)
+			{
+				if(grid[x][y] == '-')
+				{
+					grid[x][y] = value;
+					flag = 1;
+				}	
+				else
+				{
+					System.out.println("Invalid Co-ordinates");
+					
+					x = readValue.nextInt();
+					y = readValue.nextInt();
+				}
+			}
+			else
+			{
+				System.out.println("Invalid Co-ordinates");
+				x = readValue.nextInt();
+				y = readValue.nextInt();
+			}
+		}
+	}
+	
+	public char[][] get()
+	{
+		return grid;
+	}
+	
+	public void print()
+	{
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				System.out.print(grid[i][j]);
+				System.out.println(" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public int checkState()
+	{
+		for(int i=0; i<3; i++)
+		{
+			if(grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2])
+			{
+				if(grid[i][0] == 'X')
+				{
+					System.out.println("X wins");
+					return 1;
+				}
+				else
+				{
+					System.out.println("O wins");
+					return 2;
+				}
+			}
+		}
+		
+		for(int i=0; i<3; i++)
+		{
+			if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i])
+			{
+				if(grid[0][i] == 'X')
+				{
+					System.out.println("X wins");
+					return 1;
+				}
+				else
+				{
+					System.out.println("O wins");
+					return 2;
+				}
+			}
+		}
+		
+		if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]){
+			if(grid[0][0] == 'X')
+			{
+				System.out.println("X wins");
+				return 1;
+			}
+			else
+			{
+				System.out.println("O wins");
+				return 2;
+			}
+		}
+		
+		if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
+			if(grid[0][2] == 'X')
+			{
+				System.out.println("X wins");
+				return 1;
+			}
+			else
+			{
+				System.out.println("O wins");
+				return 2;
+			}
+		}
+		
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				if(grid[i][j] == '-')
+					return -1;
+			}
+		}
+	
+		System.out.println("Draw");
+		return 0;
+	}
+	
+
+}

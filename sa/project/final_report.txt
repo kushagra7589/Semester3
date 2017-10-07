@@ -1,0 +1,37 @@
+Title:Docker Conatiner
+Project Id:4
+Objective:Creating docker platform for users where they can host multiple images on different containers.
+
+Team:
+	Name:Kushagra Arora
+	Roll number:2015049
+	Email id:kushgra15049@iiitd.ac.in
+	Efforts:High(Django-backend,docker-py API)
+
+	Name:Gunkirat Kaur
+	Roll number:2015032
+	Email id:gunkirat15032@iiitd.ac.in
+	Efforts:High(Django UI,database,docker-py API)
+
+Architectural design:
+
+Software prequistes:
+	1.Django-1.10 
+	2.docker-py API
+	3.docker server
+	
+
+Link to source-code: github.com/kushagra7589/SA-Docker/dockPlat
+
+Summary of the midsem demo:
+	1.Told to make a docker platform where user can give their image you have to create a container for their site.
+	2.No need of making a LDAP site with google authentication
+
+Progress after midsem demo
+	1.After midsem demo implemented a Django app which takes input a image from user and host it on a docker container using docker-py API.
+	2.The User can host multiple images on docker,can view list of all the containers,running container and exited containers.Also we give the functionality of start,stop,pass,unpause and delete a 	container to user.
+
+Unfinished task:
+	In our Django app we take image from the user which already conatins a Dockerfile.So we were unable to produce Docker file of each image given by user. 
+
+

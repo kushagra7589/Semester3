@@ -1,0 +1,13 @@
+ORG 0000
+main:
+	cpl p0.0
+	sjmp delay
+
+delay:
+	ll: mov r0, #0FFh
+	lll: mov r1, #0FFh
+	djnz r1, lll
+	djnz r0, ll
+	sjmp main 
+
+

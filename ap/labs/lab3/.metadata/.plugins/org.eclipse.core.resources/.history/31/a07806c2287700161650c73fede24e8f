@@ -1,0 +1,9 @@
+
+public class Person {
+	String username;
+	private String password;
+	String get_pass()
+	{
+		return this.password;
+	}
+}

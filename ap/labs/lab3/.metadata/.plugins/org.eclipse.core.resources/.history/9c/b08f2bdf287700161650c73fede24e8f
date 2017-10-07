@@ -1,0 +1,59 @@
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.*;
+
+public class Network {
+	void readDataBase(String filename)
+	{
+		BufferedReader br = null;
+		try
+		{
+			String CurrentLine;
+			br  = new BufferedReader(new FileReader(filename));
+			while((CurrentLine = br.readLine()) != null)
+			{
+				System.out.println(CurrentLine);
+				List<String> items = Arrays.asList(CurrentLine.split("\\s*,\\s*"));
+				for(String i : items)
+				{
+					System.out.println(i);
+				}
+			}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try 
+			{
+				if (br != null)br.close();
+			} 
+			catch (IOException ex) 
+			{	
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	void registerUser(String user, String passwrd)
+	{
+		
+	}
+	
+	public static void main(String args[])
+	{
+		Network network = new Network();
+		network.readDataBase("input.txt");
+//		Scanner reader = new Scanner(System.in);
+//		System.out.print("Enter username: ");
+//		String user = reader.next();
+//		System.out.print("Enter password: ");
+//		String passwrd = reader.next();
+//		network.registerUser(user, passwrd);
+//		reader.close();
+	}
+}

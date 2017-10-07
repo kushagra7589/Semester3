@@ -1,0 +1,113 @@
+import java.util.Scanner;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.*;
+import java.io.File;
+import java.io.*;
+
+public class Network {
+	ArrayList<Person> userlist = new ArrayList<Person>();
+	void readDataBase(String filename)
+	{
+		BufferedReader br = null;
+		try
+		{
+			String CurrentLine;
+			br  = new BufferedReader(new FileReader(filename));
+			while((CurrentLine = br.readLine()) != null)
+			{
+//				System.out.println(CurrentLine);
+				Person user = new Person();
+				List<String> items = Arrays.asList(CurrentLine.split("\\s*,\\s*"));
+				String username = items.get(0);
+				String password = items.get(1);
+				user.username = username;
+				user.set_pass(password);
+				this.userlist.add(user);
+			}
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		finally 
+		{
+			try 
+			{
+				if (br != null)br.close();
+			} 
+			catch (IOException ex) 
+			{	
+				ex.printStackTrace();
+			}
+		}
+	}
+	
+	boolean doesExist(String check_username)
+	{
+		for(Person i : this.userlist)
+		{
+			if(i.username.equals(check_username))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	void registerUser(String user, String passwrd)
+	{
+		if(doesExist(user))
+		{
+			System.out.println("This username already exists.");
+		}
+		else
+		{
+			
+		}
+	}
+	
+	void createDatabase(Person p, String filename)
+	{
+		try
+		{
+			String newData = p.username + "," +  p.get_pass();
+			File dataFile = new File(filename);
+			
+			if(!dataFile.exists())
+			{
+				dataFile.createNewFile();
+			}
+			
+			FileWriter fileWritter = new FileWriter(dataFile.getName(),true);
+	        BufferedWriter bufferWritter = new BufferedWriter(fileWritter);
+	        bufferWritter.write(newData);
+	        bufferWritter.close();
+
+        System.out.println("Done");
+		}
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+	}
+	
+	void LoginUser(String username, String password)
+	{
+		
+	}
+	
+	public static void main(String args[])
+	{
+		Network network = new Network();
+		network.readDataBase("input.txt");
+		Scanner reader = new Scanner(System.in);
+		System.out.print("Enter username: ");
+		String user = reader.next();
+		System.out.print("Enter password: ");
+		String passwrd = reader.next();
+		network.registerUser(user, passwrd, "input.txt");
+		reader.close();
+	}
+}

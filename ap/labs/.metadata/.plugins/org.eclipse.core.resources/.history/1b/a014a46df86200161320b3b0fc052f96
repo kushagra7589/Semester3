@@ -1,0 +1,137 @@
+package lab1;
+
+import java.util.Scanner;
+
+public class board {
+
+	char[][] grid = new char[3][3];
+
+	public board()
+	{
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				grid[i][j] = '-';
+			}
+		}
+	}
+	
+	public boolean put(int x, int y, char value)
+	{
+		if(x < 3 && x>=0 && y < 3 && y >= 0)
+		{
+			if(grid[x][y] == '-')
+			{
+				grid[x][y] = value;
+				return true;
+			}	
+			else
+			{
+				System.out.println("Invalid Co-ordinates");
+				
+				return false;
+			}
+		}
+		else
+		{
+			System.out.println("Invalid Co-ordinates");
+			return false;
+		}
+	}
+	
+	public char[][] get()
+	{
+		return grid;
+	}
+	
+	public void print()
+	{
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				System.out.print(grid[i][j]);
+				System.out.print(" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	public int checkState()
+	{
+		for(int i=0; i<3; i++)
+		{
+			if(grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2])
+			{
+				if(grid[i][0] == 'X')
+				{
+					System.out.println("X wins");
+					return 1;
+				}
+				else
+				{
+					System.out.println("O wins");
+					return 2;
+				}
+			}
+		}
+		
+		for(int i=0; i<3; i++)
+		{
+			if(grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i])
+			{
+				if(grid[0][i] == 'X')
+				{
+					System.out.println("X wins");
+					return 1;
+				}
+				else
+				{
+					System.out.println("O wins");
+					return 2;
+				}
+			}
+		}
+		
+		if(grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]){
+			if(grid[0][0] == 'X')
+			{
+				System.out.println("X wins");
+				return 1;
+			}
+			else
+			{
+				System.out.println("O wins");
+				return 2;
+			}
+		}
+		
+		if(grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]){
+			if(grid[0][2] == 'X')
+			{
+				System.out.println("X wins");
+				return 1;
+			}
+			else
+			{
+				System.out.println("O wins");
+				return 2;
+			}
+		}
+		
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				if(grid[i][j] == '-')
+					return -1;
+			}
+		}
+	
+		System.out.println("Draw");
+		return 0;
+	}
+	
+
+}

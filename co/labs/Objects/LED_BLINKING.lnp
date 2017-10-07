@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\led_blinking.obj" 
+TO ".\Objects\LED_BLINKING" 
+PRINT(".\Listings\LED_BLINKING.m51")

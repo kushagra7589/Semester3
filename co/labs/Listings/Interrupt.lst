@@ -1,0 +1,64 @@
+A51 MACRO ASSEMBLER  INTERRUPT                                                            10/08/2016 11:48:44 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\Interrupt.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE Interrupt.a51 SET(SMALL) DEBUG PRINT(.\Listings\Interrupt.lst) OBJECT(.
+                      \Objects\Interrupt.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     org 0000
+
+                       2             
+
+0000 8004              3             jmp main
+
+                       4             
+
+0003                   5             org 0003H
+
+0003 B280              6                     cpl p0.0
+
+0005 32                7             reti
+
+                       8     
+
+                       9     
+
+0006                  10             main:   
+
+0006 75A881           11                     mov IE, #10000001b
+
+                      12             ;       setb p3.2;input
+
+0009 C280             13                     clr p0.0
+
+000B                  14                     start1: 
+
+000B B287             15                             cpl p0.7
+
+000D 80FC             16                             sjmp start1
+
+                      17                     end  
+
+                                     
+
+A51 MACRO ASSEMBLER  INTERRUPT                                                            10/08/2016 11:48:44 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+IE . . . . . . . .  D ADDR   00A8H   A   
+MAIN . . . . . . .  C ADDR   0006H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+START1 . . . . . .  C ADDR   000BH   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)

@@ -1,0 +1,13 @@
+<class>
+	<student rollNo="10">
+		<firstName>Akarsha</firstName>
+		<LastName>Sehwag</LastName>
+		<Marks>10.0</Marks>
+	</student>
+
+	<student rollNo="22">
+		<firstName>ABc</firstName>
+		<LastName>lsn</LastName>
+		<Marks>9.0</Marks>
+	</student>
+</class>

@@ -1,0 +1,61 @@
+A51 MACRO ASSEMBLER  LED_BLINKING                                                         09/17/2016 11:47:29 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.5.0
+OBJECT MODULE PLACED IN .\Objects\led_blinking.obj
+ASSEMBLER INVOKED BY: C:\Keil_v5\C51\BIN\A51.EXE led_blinking.a51 SET(SMALL) DEBUG PRINT(.\Listings\led_blinking.lst) OB
+                      JECT(.\Objects\led_blinking.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+0000                   1     ORG 0000
+
+                       2             
+
+0000                   3     main:
+
+0000 D280              4             setb p0.0
+
+0002 110A              5             call DELAY
+
+0004 C280              6             clr p0.0
+
+0006 110A              7             call DELAY
+
+0008 80F6              8             sjmp main
+
+                       9     
+
+000A 7EFA             10     DELAY: MOV R6,#250D
+
+000C 7FFA             11            MOV R7,#250D
+
+000E DEFE             12     LABEL1: DJNZ R6,LABEL1
+
+0010 DFFE             13     LABEL2: DJNZ R7,LABEL2
+
+0012 22               14             RET
+
+                      15                             
+
+                      16     end
+
+A51 MACRO ASSEMBLER  LED_BLINKING                                                         09/17/2016 11:47:29 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+DELAY. . . . . . .  C ADDR   000AH   A   
+LABEL1 . . . . . .  C ADDR   000EH   A   
+LABEL2 . . . . . .  C ADDR   0010H   A   
+MAIN . . . . . . .  C ADDR   0000H   A   
+P0 . . . . . . . .  D ADDR   0080H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  0 WARNING(S), 0 ERROR(S)
